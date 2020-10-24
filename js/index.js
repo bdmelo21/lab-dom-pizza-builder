@@ -117,7 +117,60 @@ function renderButtons() {
 };
 
 function renderPrice() {
-  // Iteration 4: change the HTML of `<aside class="panel price">`
+  let pepperoniclass= document.querySelector('.pepli');
+  let mushroomclass= document.querySelector('.mushli');
+  let greenPeppersclass= document.querySelector('.greenpeppsli');
+  let whiteSauceclass= document.querySelector('.whitesau');
+  let glutens = document.querySelector('.glutens');
+  let counter = 21;
+
+  if (state.pepperoni) {
+    pepperoniclass.innerHTML= '$1 pepperoni'; 
+    counter-=1;
+    counter+=1;
+  }
+  else if (!state.pepperoni) {
+    pepperoniclass.innerHTML = '';
+    counter-=1;
+  }
+  if (state.mushrooms) {
+   mushroomclass.innerHTML= '$1 mushrooms'; 
+   counter-=1;
+   counter+=1;
+  }
+  else if (!state.mushrooms) {
+    mushroomclass.innerHTML = '';
+    counter-=1;
+  }
+  if (state.greenPeppers) {
+    greenPeppersclass.innerHTML= '$1 green peppers'; 
+    counter-=1;
+    counter+=1;
+   }
+   else if (!state.greenPeppers) {
+    greenPeppersclass.innerHTML = '';
+    counter-=1;
+   }
+   if (!state.whiteSauce) {
+    whiteSauceclass.innerHTML= '$3 white sauce'; 
+    counter-=3;
+    counter+=3;
+   }
+   else if (state.whiteSauce) {
+    whiteSauceclass.innerHTML = '';
+    counter-=3;
+   }
+   if (!state.glutenFreeCrust) {
+    glutens.innerHTML= '$5 gluten-free crust'; 
+    counter-=5;
+    counter+=5;
+   }
+   else if (state.glutenFreeCrust) {
+    glutens.innerHTML = '';
+    counter-=5;
+   }
+   let sum= document.querySelector('.totalsumclass');
+   sum.innerHTML= `$${counter}`;
 }
 
 renderEverything();
